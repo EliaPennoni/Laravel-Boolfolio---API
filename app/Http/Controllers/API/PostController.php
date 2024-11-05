@@ -27,15 +27,26 @@ class PostController extends Controller
 
     public function show(string $slug)
     {
-        $project = Project::where('slug', $slug)->firstOrFail();
-        return response()->json([
-            'success' => true,
-            'code' => 200,
-            'message' => 'ok',
-            'data' => [
-                'projects' => $project
-            ],
+        $project = Project::where('slug', $slug)->first();
 
-        ]);
+        if ($project) {
+            return response()->json([
+                'success' => true,
+                'code' => 200,
+                'message' => 'ok',
+                'data' => [
+                    'projects' => $project
+                ],
+
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'code' => 404,
+                'message' => 'Bad',
+            ]);
+
+        }
+
     }
 }
