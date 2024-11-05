@@ -22,4 +22,5 @@ Route::name('api.')->group(function () {
     });
 
     Route::get('/post', [PostController::class, 'index'])->name('posts.index');
+    Route::get('/post/[slug]', [PostController::class, 'show'])->name('posts.show');
 });

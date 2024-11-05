@@ -12,13 +12,28 @@ class PostController extends Controller
 {
     public function index()
     {
-        $projects = Project::get();
+        // $projects = Project::get();
+        $projects = Project::with('type', 'technologies')->paginate(3);
         return response()->json([
             'success' => true,
             'code' => 200,
             'message' => 'ok',
             'data' => [
                 'projects' => $projects
+            ],
+
+        ]);
+    }
+
+    public function show(string $slug)
+    {
+        $project = Project::with('type', 'technologies')->paginate(3);
+        return response()->json([
+            'success' => true,
+            'code' => 200,
+            'message' => 'ok',
+            'data' => [
+                'projects' => $project
             ],
 
         ]);
