@@ -27,7 +27,7 @@ class PostController extends Controller
 
     public function show(string $slug)
     {
-        $project = Project::with('type', 'technologies')->paginate(3);
+        $project = Project::where('slug', $slug)->firstOrFail();
         return response()->json([
             'success' => true,
             'code' => 200,
