@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // controllers
-use App\Http\Controllers\API\PostController;
+use App\Http\Controllers\API\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +21,6 @@ Route::name('api.')->group(function () {
         return $request->user();
     });
 
-    Route::get('/post', [PostController::class, 'index'])->name('posts.index');
-    Route::get('/post/[slug]', [PostController::class, 'show'])->name('posts.show');
+    Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+    Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projects.show');
 });

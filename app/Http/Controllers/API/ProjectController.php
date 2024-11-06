@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 // models
 use App\Models\Project;
 
-class PostController extends Controller
+class ProjectController extends Controller
 {
     public function index()
     {
