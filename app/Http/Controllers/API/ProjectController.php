@@ -20,6 +20,7 @@ class ProjectController extends Controller
             'message' => 'ok',
             'data' => [
                 'projects' => $projects
+
             ],
 
         ]);
@@ -50,3 +51,4 @@ class ProjectController extends Controller
 
     }
 }
+
